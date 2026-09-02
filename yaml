@@ -1,0 +1,15 @@
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests + lint
+        run: |
+          pip install -r requirements.txts
+          pytest --cov=app tests/
+          ruff check .
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
