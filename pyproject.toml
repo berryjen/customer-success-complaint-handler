@@ -1,0 +1,22 @@
+[project]
+name = "customer-success-complaint-handler"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Jen", email = "jennifer.cc.su@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard]>=0.141.1",
+    "openai>=3.7.0",
+    "sqlalchemy>=2.0.52",
+    "structlog>=26.1.0",
+]
+
+[project.scripts]
+customer-success-complaint-handler = "customer_success_complaint_handler:main"
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
