@@ -9,15 +9,6 @@ logger = structlog.get_logger()
 
 
 async def execute_action(complaint_id: int, classification: ClassificationResult) -> None:
-    """
-    Execute business rules based on AI classification.
-
-    Rules:
-    - CRITICAL: Immediate Slack alert + escalate to human
-    - HIGH + billing: Auto-reply + escalate
-    - HIGH (other): Escalate
-    - MEDIUM/LOW: Log to low-priority channel
-    """
     db = SessionLocal()
     try:
         complaint = db.query(Complaint).filter(Complaint.id == complaint_id).first()
