@@ -29,7 +29,7 @@ async def execute_action(complaint_id: int, classification: ClassificationResult
         if classification.severity == "critical":
             complaint.status = ComplaintStatus.ESCALATED
             await notify_slack(
-                f"""🚨 *CRITICAL COMPLAINT* 🚨
+                f""" *CRITICAL COMPLAINT* 
 *ID:* {complaint.id}
 *Category:* {classification.category}
 *Sentiment:* {classification.sentiment_score}/10

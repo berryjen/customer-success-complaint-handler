@@ -3,8 +3,8 @@ import os
 from openai import OpenAI
 
 client = OpenAI(
-    api_key=os.environ["MOONSHOT_API_KEY"],
-    base_url="https://api.moonshot.ai/v1",
+    api_key=os.environ["GLM_API_KEY"],
+    base_url="https://api.z.ai/api/paas/v4/",
 )
 
 SYSTEM_PROMPT = """You are a customer-complaint triage agent for a small online shop.
@@ -18,7 +18,7 @@ Output JSON only. No markdown fences, no commentary."""
 
 def handle_complaint(complaint: str) -> dict:
     resp = client.chat.completions.create(
-        model="kimi-k3",
+        model="glm-5.3",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": complaint},

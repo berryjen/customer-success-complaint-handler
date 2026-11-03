@@ -24,7 +24,7 @@ async def classify_complaint(text: str) -> ClassificationResult:
     """
     
     response = await openai.chat.completions.create(
-        model="kimi-k2.6",
+        model="glm-5.3",
         messages=[{"role": "user", "content": prompt}],
         response_format={"type": "json_object"}
     )
