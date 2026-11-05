@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Integer, String, DateTime, JSON, Enum
-from enum import Enum as PyEnum
+from app.database import Base
+from datetime import datetime
 
 class Severity(PyEnum):
     LOW = "low"
